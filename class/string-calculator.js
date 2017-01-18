@@ -11,7 +11,7 @@ class StringCalculator {
             return this.defaultValue;
         }
 
-        let values = input.split(',');
+        let values = input.split(/[\n,]/);
 
         return this.sum(values);
     }

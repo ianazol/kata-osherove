@@ -32,4 +32,10 @@ describe("String calculator", function(){
         let sum = calculator.add('1,2,3,4,5');
         assert.equal(sum, (1 + 2 + 3 + 4 + 5));
     });
+
+    it("should return sum of values separated by comma or new line", function(){
+        let calculator = createCalculator();
+        let sum = calculator.add('1\n2,3');
+        assert.equal(sum, (1 + 2 + 3));
+    })
 });
