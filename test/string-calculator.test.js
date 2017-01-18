@@ -25,5 +25,11 @@ describe("String calculator", function(){
         let calculator = createCalculator();
         let sum = calculator.add('1,2');
         assert.equal(sum, (1 + 2));
-    })
+    });
+
+    it("should return sum of several comma separated values", function(){
+        let calculator = createCalculator();
+        let sum = calculator.add('1,2,3,4,5');
+        assert.equal(sum, (1 + 2 + 3 + 4 + 5));
+    });
 });
