@@ -61,5 +61,11 @@ describe("String calculator", function(){
         let calculator = createCalculator();
 
         assert.throws(() => calculator.add('-1'));
-    })
+    });
+
+    it("should throw an exception if input multiple negatives", function(){
+        let calculator = createCalculator();
+
+        assert.throws(() => calculator.add('1,-2,-3'));
+    });
 });

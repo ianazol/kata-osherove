@@ -31,7 +31,7 @@ class StringCalculator {
     }
 
     isNegative(values){
-        return values[0] < 0;
+        return values.some((value) => value < 0);
     }
 
     getValues(input){
