@@ -17,7 +17,13 @@ describe("String calculator", function(){
 
     it("should return value if input is 1 value", function(){
         let calculator = createCalculator();
-        let sum = calculator.add(1);
+        let sum = calculator.add('1');
         assert.equal(sum, 1);
     });
+
+    it("should return sum of 2 comma separated values", function(){
+        let calculator = createCalculator();
+        let sum = calculator.add('1,2');
+        assert.equal(sum, (1 + 2));
+    })
 });

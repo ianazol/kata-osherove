@@ -11,7 +11,13 @@ class StringCalculator {
             return this.defaultValue;
         }
 
-        return parseInt(input);
+        let values = input.split(',');
+
+        return this.sum(values);
+    }
+
+    sum(values){
+        return values.reduce((prev, curr) => parseInt(prev) + parseInt(curr));
     }
 
     isEmpty(input){
