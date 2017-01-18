@@ -43,5 +43,11 @@ describe("String calculator", function(){
         let calculator = createCalculator();
         let sum = calculator.add('1,\n2');
         assert.isNaN(sum, 'sum is NAN');
+    });
+
+    it("should support optional delimiter", function(){
+        let calculator = createCalculator();
+        let sum = calculator.add('//;\n1;2;3');
+        assert.equal(sum, (1 + 2 + 3));
     })
 });

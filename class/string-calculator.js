@@ -4,14 +4,27 @@ class StringCalculator {
 
     constructor(){
         this.defaultValue = 0;
+        this.defaultDelimiter = /[\n,]/;
+        this.optionalDelimiterExp = /^\/\/;\n/;
     }
 
     add(input){
+        let values = [];
+
         if (this.isEmpty(input)){
             return this.defaultValue;
         }
 
-        let values = input.split(/[\n,]/);
+        if (input.search(this.optionalDelimiterExp) == 0)
+        {
+            let delimiter = input[2];
+            let strOfValues = input.substr(4);
+            values = strOfValues.split(delimiter);
+        }
+        else
+        {
+            values = input.split(this.defaultDelimiter);
+        }
 
         return this.sum(values);
     }
