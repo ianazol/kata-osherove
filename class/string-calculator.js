@@ -9,21 +9,14 @@ class StringCalculator {
     }
 
     add(input){
-        let values = [];
-
         if (this.isEmpty(input)){
             return this.defaultValue;
         }
 
-        if (input.search(this.optionalDelimiterExp) == 0)
-        {
-            let delimiter = input[2];
-            let strOfValues = input.substr(4);
-            values = strOfValues.split(delimiter);
-        }
-        else
-        {
-            values = input.split(this.defaultDelimiter);
+        let values = this.getValues(input);
+
+        if (this.isNegative(values)){
+            throw new Error(`negatives not allowed ${values[0]}`);
         }
 
         return this.sum(values);
@@ -35,6 +28,23 @@ class StringCalculator {
 
     isEmpty(input){
         return (input === "");
+    }
+
+    isNegative(values){
+        return values[0] < 0;
+    }
+
+    getValues(input){
+        if (input.search(this.optionalDelimiterExp) == 0)
+        {
+            let delimiter = input[2];
+            let strOfValues = input.substr(4);
+            return strOfValues.split(delimiter);
+        }
+        else
+        {
+            return input.split(this.defaultDelimiter);
+        }
     }
 }
 

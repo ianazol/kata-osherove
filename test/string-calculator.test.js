@@ -55,5 +55,11 @@ describe("String calculator", function(){
         let calculator = createCalculator();
         let sum = calculator.add('//!\n1!2!3!4');
         assert.equal(sum, (1 + 2 + 3 + 4));
+    });
+
+    it("should throw an exception if input value is negative", function(){
+        let calculator = createCalculator();
+
+        assert.throws(() => calculator.add('-1'));
     })
 });
