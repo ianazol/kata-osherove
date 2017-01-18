@@ -2,9 +2,20 @@
 
 class StringCalculator {
 
+    constructor(){
+        this.defaultValue = 0;
+    }
+
     add(input){
-        if (input === "")
-            return 0;
+        if (this.isEmpty(input)){
+            return this.defaultValue;
+        }
+
+        return parseInt(input);
+    }
+
+    isEmpty(input){
+        return (input === "");
     }
 }
 
