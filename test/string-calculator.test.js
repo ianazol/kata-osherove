@@ -37,5 +37,11 @@ describe("String calculator", function(){
         let calculator = createCalculator();
         let sum = calculator.add('1\n2,3');
         assert.equal(sum, (1 + 2 + 3));
+    });
+
+    it("should return sum of values if they separated only by comma or new line", function(){
+        let calculator = createCalculator();
+        let sum = calculator.add('1,\n2');
+        assert.isNaN(sum, 'sum is NAN');
     })
 });
