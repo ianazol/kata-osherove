@@ -5,7 +5,7 @@ class StringCalculator {
     constructor(){
         this.defaultValue = 0;
         this.defaultDelimiter = /[\n,]/;
-        this.optionalDelimiterExp = /^\/\/;\n/;
+        this.optionalDelimiterExp = /^\/\/.\n/;
     }
 
     add(input){

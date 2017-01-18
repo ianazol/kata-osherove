@@ -49,5 +49,11 @@ describe("String calculator", function(){
         let calculator = createCalculator();
         let sum = calculator.add('//;\n1;2;3');
         assert.equal(sum, (1 + 2 + 3));
+    });
+
+    it("should support different delimiter", function(){
+        let calculator = createCalculator();
+        let sum = calculator.add('//!\n1!2!3!4');
+        assert.equal(sum, (1 + 2 + 3 + 4));
     })
 });
