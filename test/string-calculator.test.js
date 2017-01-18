@@ -68,4 +68,10 @@ describe("String calculator", function(){
 
         assert.throws(() => calculator.add('1,-2,-3'));
     });
+
+    it("should show all negative values in exception message", function(){
+        let calculator = createCalculator();
+
+        assert.throws(() => calculator.add('1,-2,-3'), 'negatives not allowed -2,-3');
+    });
 });

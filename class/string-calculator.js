@@ -15,8 +15,9 @@ class StringCalculator {
 
         let values = this.getValues(input);
 
-        if (this.isNegative(values)){
-            throw new Error(`negatives not allowed ${values[0]}`);
+        let negativeValues = this.getNegative(values);
+        if(negativeValues.length > 0){
+            throw new Error(`negatives not allowed ${negativeValues.join(",")}`);
         }
 
         return this.sum(values);
@@ -30,8 +31,16 @@ class StringCalculator {
         return (input === "");
     }
 
-    isNegative(values){
-        return values.some((value) => value < 0);
+    getNegative(values){
+        let negativeValues = [];
+
+        values.map(function(value){
+            if (value < 0){
+                negativeValues.push(value);
+            }
+        });
+
+        return negativeValues;
     }
 
     getValues(input){
